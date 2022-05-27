@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:skyline_template_app/ui/home_view.dart';
-import 'package:skyline_template_app/ui/teacher_view.dart';
+import 'package:skyline_template_app/ui/game_view.dart';
 import 'package:skyline_template_app/core/utilities/route_names.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -29,8 +29,8 @@ class Router {
     switch (settings.name) {
       case HomeViewRoute:
         return HomeView();
-      case TeacherViewRoute:
-        return TeacherView();
+      case GameViewRoute:
+        return GameView();
       default:
         return Scaffold(
           body: Center(child: Text('No route defined for ${settings.name}')),

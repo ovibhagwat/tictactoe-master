@@ -12,22 +12,58 @@ class HomeView extends StatelessWidget {
       viewModelBuilder: () => locator<HomeViewModel>(),
       onModelReady: (viewModel) => viewModel.init(),
       builder: (context, viewModel, child) => Scaffold(
-            backgroundColor: kColorSkylineGreen,
-            body: Column(
-              children: [
-                Container(
-                  child: Center(child: Text("Skyline Flutter Template",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color: kColorSkylineWhite),)),
-                ),SizedBox(height: 10,),
-                Container(child: Image.asset('assets/SkyLineLogo.png'),),
-                ElevatedButton(onPressed: () {
-                  viewModel.routeToTeacherView();
-                }, style: ElevatedButton.styleFrom(primary: kColorSkyLineGrey, ),child: Text("Teacher View",style: TextStyle(color: kColorSkylineGreen),),)
-              ],
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            Container(
+              child: Center(
+                  child: Text(
+                "Impossible",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                    color: kColorStorm),
+              )),
             ),
-          ),
-        );
-
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              child: Center(
+                  child: Text(
+                    "Tic Tac Toe",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30,
+                        color: kColorStorm),
+                  )),
+            ),
+            SizedBox(
+              height: 60,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                viewModel.routeToGameView();
+              },
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100.0),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all<Color>(kColorBlue),
+              ),
+              child: Text(
+                "PLAY",
+                style: TextStyle(color: kColorLinen, fontSize: 20, ),
+              ),
+            )
+          ],
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+        ),
+      ),
+    );
   }
 }
