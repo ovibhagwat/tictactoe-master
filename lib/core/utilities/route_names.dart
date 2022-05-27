@@ -1,5 +1,5 @@
 const String HomeViewRoute = 'HomeView';
-const String TeacherViewRoute = 'TeacherView';
+const String GameViewRoute = 'GameView';
 
 
 
