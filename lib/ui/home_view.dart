@@ -12,56 +12,40 @@ class HomeView extends StatelessWidget {
       viewModelBuilder: () => locator<HomeViewModel>(),
       onModelReady: (viewModel) => viewModel.init(),
       builder: (context, viewModel, child) => Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey,
         body: Column(
           children: [
             Container(
               child: Center(
                   child: Text(
-                "Impossible",
+                "Impossible Tic Tac Toe",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                    color: kColorStorm),
+                    fontSize: 30,
+                    color: Colors.black),
               )),
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Container(
-              child: Center(
-                  child: Text(
-                    "Tic Tac Toe",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                        color: kColorStorm),
-                  )),
-            ),
-            SizedBox(
-              height: 60,
+              child: Image.asset('assets/playButton.png'),
             ),
             ElevatedButton(
               onPressed: () {
                 viewModel.routeToGameView();
               },
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100.0),
-                  ),
-                ),
-                backgroundColor: MaterialStateProperty.all<Color>(kColorBlue),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.black54,
               ),
               child: Text(
-                "PLAY",
-                style: TextStyle(color: kColorLinen, fontSize: 20, ),
+                "Play",
+                style: TextStyle(color: Colors.black),
               ),
             )
           ],
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
         ),
       ),
     );

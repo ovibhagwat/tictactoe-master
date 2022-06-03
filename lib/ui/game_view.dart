@@ -28,6 +28,12 @@ class GameView extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
+            Container(
+              child: Image.asset('assets/TTTBoard.png'),
+            ),
+            SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
               onPressed: () {
                 viewModel.routeToHomeView();
