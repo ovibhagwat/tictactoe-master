@@ -34,16 +34,20 @@ class GameViewModel extends BaseViewModel {
     setState(ViewState.Idle);
   }
 
-  void showAlertDialog(String, int){
+  void showAlertDialog(String, int) {
     //Add alert dialog
   }
 
-  void checkWinner() {
+  void computerPlays(){
+     
+  }
+
+  bool checkWinner() {
     if (xOrOList[0] == xOrOList[1] &&
         xOrOList[0] == xOrOList[2] &&
         xOrOList[0] != '') {
       showAlertDialog('Winner', xOrOList[0]);
-      return;
+      return true;
     }
 
     // check second row
@@ -51,7 +55,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[3] == xOrOList[5] &&
         xOrOList[3] != '') {
       showAlertDialog('Winner', xOrOList[3]);
-      return;
+      return true;
     }
 
     // check third row
@@ -59,7 +63,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[6] == xOrOList[8] &&
         xOrOList[6] != '') {
       showAlertDialog('Winner', xOrOList[6]);
-      return;
+      return true;
     }
 
     // check first column
@@ -67,7 +71,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[0] == xOrOList[6] &&
         xOrOList[0] != '') {
       showAlertDialog('Winner', xOrOList[0]);
-      return;
+      return true;
     }
 
     // check second column
@@ -75,7 +79,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[1] == xOrOList[7] &&
         xOrOList[1] != '') {
       showAlertDialog('Winner', xOrOList[1]);
-      return;
+      return true;
     }
 
     // check third column
@@ -83,7 +87,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[2] == xOrOList[8] &&
         xOrOList[2] != '') {
       showAlertDialog('Winner', xOrOList[2]);
-      return;
+      return true;
     }
 
     // check diagonal
@@ -91,7 +95,7 @@ class GameViewModel extends BaseViewModel {
         xOrOList[0] == xOrOList[8] &&
         xOrOList[0] != '') {
       showAlertDialog('Winner', xOrOList[0]);
-      return;
+      return true;
     }
 
     // check diagonal
@@ -99,28 +103,24 @@ class GameViewModel extends BaseViewModel {
         xOrOList[2] == xOrOList[6] &&
         xOrOList[2] != '') {
       showAlertDialog('Winner', xOrOList[2]);
-      return;
+      return true;
     }
 
     if (filledBoxes == 9) {
       showAlertDialog('Draw', '');
+      return true;
     }
+    return false;
   }
 
+  //what happens when player taps screen
   void tapped(int index) {
-    if (turnOfO && xOrOList[index] == '') {
-      xOrOList[index] = 'o';
-      filledBoxes += 1;
-    } else if (!turnOfO && xOrOList[index] == '') {
-      xOrOList[index] = 'x';
-      filledBoxes += 1;
-    }
-
-    turnOfO = !turnOfO;
+    xOrOList[index] = 'o';
+    filledBoxes += 1;
     checkWinner();
-    //what happens when player taps screen
-    //CheckWinner();
-    //if CheckWinner = false, computerPlays();
+    if (checkWinner() == false) {
+      computerPlays();
+    }
     notifyListeners();
   }
 

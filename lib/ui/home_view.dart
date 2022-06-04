@@ -15,6 +15,14 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Column(
           children: [
+            // Row(
+            //   children: [
+            //     Container(
+            //       child:()
+            //     ),
+            //     Container(),
+            //   ],
+            // ),
             Container(
               child: Center(
                   child: Text(
@@ -39,25 +47,25 @@ class HomeView extends StatelessWidget {
                   )),
             ),
             SizedBox(
-              height: 60,
+              height: 150,
             ),
-            ElevatedButton(
-              onPressed: () {
-                viewModel.routeToGameView();
-              },
-              style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100.0),
-                  ),
+            SizedBox(
+              height: 50,
+              width: 200,
+              child: ElevatedButton(
+                onPressed: () {
+                  viewModel.routeToGameView();
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: kColorBlue,
                 ),
-                backgroundColor: MaterialStateProperty.all<Color>(kColorBlue),
+                child: Text(
+                  "PLAY",
+                  style: TextStyle(color: kColorLinen, fontSize: 20, ),
+                ),
               ),
-              child: Text(
-                "PLAY",
-                style: TextStyle(color: kColorLinen, fontSize: 20, ),
-              ),
-            )
+            ),
+
           ],
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
